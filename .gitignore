@@ -1,0 +1,12 @@
+__pycache__
+venv
+*.egg-info
+config.ini
+.pytest_cache
+.tox
+.coverage
+*.orig
+.DS_Store
+.mypy_cache
+.hg
+.hgignore

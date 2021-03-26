@@ -1,0 +1,9 @@
+.hg
+.hgignore
+.git
+.gitignore
+config.ini
+venv
+.pytest_cache
+.idea
+__pycache__

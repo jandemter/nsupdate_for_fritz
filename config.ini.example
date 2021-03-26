@@ -1,0 +1,32 @@
+# optional: configure a different name instead of the default 'fritz.box'
+[fritzbox]
+name = fritz.box
+
+[server]
+# hostname of the name server - i.e. ns.example.com
+name = NAMESERVER_HERE
+# zone name - i.e. example.com
+zone = ZONE_NAME_HERE
+# key type used for nsupdate authentication - i.e. hmac-sha256
+key_type = KEY_TYPE_HERE
+# authentication key name - i.e. my_key
+key_name = NSUPDATE_KEY_NAME_HERE
+# key used for authentication - i.e. abcd/ef0123abcdef0123456890
+key = NSUPDATE_KEY_HERE
+# Time To Live for A, AAAA and TXT records (seconds)
+TTL_A = 300
+TTL_AAAA = 300
+TTL_TXT = 30
+
+[hosts]
+# A / AAAA records - will get v4 IP address of the FRITZ!Box, v6 of
+# HOSTNAME_HERE.fritz.box
+some-hostname = v4
+another-hostname = v4,v6:HOSTNAME_HERE
+one-more-hostname = v4
+v6-of-fritz-box = v6:fritz.box
+
+[txt]
+# TXT records, i.e. for Let's Encrypt
+_acme-challenge.some-hostname = abcde123fg567
+_acme-challenge.one-more-hostname = abcde123fg567
