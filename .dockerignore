@@ -2,8 +2,14 @@
 .hgignore
 .git
 .gitignore
+.dockerignore
+Dockerfile
 config.ini
 venv
 .pytest_cache
 .idea
-__pycache__
+**/__pycache__
+.tox
+*.egg-info
+.coverage
+.github

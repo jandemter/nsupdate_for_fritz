@@ -31,7 +31,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description='uses nsupdate to update zones with addresses of your FRITZ!Box')
     parser.add_argument('config_file', nargs='?', default=config_file_path,
-                        help=f'path to config file (optional, uses {config_file_path} by default), '
+                        help='path to config file (optional, uses "%(default)s" by default), '
                              'use "-" for stdin')
     parser.add_argument('--dry-run', action='store_true',
                         help='no changes done, only echoes updates to be sent')
