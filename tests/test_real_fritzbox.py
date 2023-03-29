@@ -13,11 +13,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with nsupdate_for_fritz.  If not, see <http://www.gnu.org/licenses/>.
+along with nsupdate_for_fritz.  If not, see <https://www.gnu.org/licenses/>.
 """
 import socket
 import unittest
 import ipaddress
+from pathlib import Path
 
 import requests
 
@@ -59,7 +60,12 @@ class RealFritzboxTests(unittest.TestCase):
         v4_address = nsupdate_for_fritz.addresses.get_fritz_ip_address()
         # having no v4 address is ok since fritz!os 7.20 for IPv6-only upstream
         if v4_address == '':
-            self.assertFalse(v6_connectivity_absent(), "no v6 connectivity and no IPv4 address found")
+            no_v6_connectivity = v6_connectivity_absent()
+            # yank this as soon as IPv6 works ootb in docker etc.
+            in_container = Path('/.dockerenv').exists() or Path('/run/.containerenv').exists()
+            if no_v6_connectivity and in_container:
+                self.skipTest('container build and no IPv4 address found')
+            self.assertFalse(no_v6_connectivity, "no v6 connectivity and no IPv4 address found")
             return
         self.assertRegex(v4_address, r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})')
 

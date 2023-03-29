@@ -50,7 +50,7 @@ class AddressDB:
         self.cursor.execute('BEGIN TRANSACTION')
 
     def commit(self):
-        """commit DB transcation"""
+        """commit DB transaction"""
         self.cursor.execute('COMMIT')
         self.cursor.close()
 
