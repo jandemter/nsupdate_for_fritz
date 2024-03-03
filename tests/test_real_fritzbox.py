@@ -19,6 +19,7 @@ import socket
 import unittest
 import ipaddress
 from pathlib import Path
+from os import environ
 
 import requests
 
@@ -62,7 +63,8 @@ class RealFritzboxTests(unittest.TestCase):
         if v4_address == '':
             no_v6_connectivity = v6_connectivity_absent()
             # yank this as soon as IPv6 works ootb in docker etc.
-            in_container = Path('/.dockerenv').exists() or Path('/run/.containerenv').exists()
+            in_container = (Path('/.dockerenv').exists() or Path('/run/.containerenv').exists()
+                            or 'DOCKER_BUILD' in environ)
             if no_v6_connectivity and in_container:
                 self.skipTest('container build and no IPv4 address found')
             self.assertFalse(no_v6_connectivity, "no v6 connectivity and no IPv4 address found")

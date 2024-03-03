@@ -13,3 +13,4 @@ venv
 *.egg-info
 .coverage
 .github
+.DS_Store
