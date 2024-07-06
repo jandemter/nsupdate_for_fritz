@@ -28,7 +28,7 @@ import nsupdate_for_fritz.addresses
 
 def fritzbox_absent():
     try:
-        res = requests.get('http://fritz.box/', timeout=5)
+        res = requests.get('http://fritz.box/', timeout=5, allow_redirects=False)
         if res.status_code == 200 and b'FRITZ!Box' in res.content:
             return False
         else:
