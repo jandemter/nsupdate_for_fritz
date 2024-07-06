@@ -52,7 +52,6 @@ class CliUtilityDryRunTests(unittest.TestCase):
         stdout.seek(0)
         self.assertEqual(stdout.read(), self.reference_commands)
 
-    @unittest.skipIf(sys.hexversion < 0x3070000, 'capture_output unavailable in Python 3.6 and lower')
     def test_cli_python(self):
         cli = subprocess.run((sys.executable, util_path(), '--dry-run',
                               config_files_path() / 'test_TXT_config.ini'),
@@ -60,7 +59,6 @@ class CliUtilityDryRunTests(unittest.TestCase):
         self.assertEqual(cli.returncode, 0)
         self.assertEqual(cli.stdout, self.reference_commands)
 
-    @unittest.skipIf(sys.hexversion < 0x3070000, 'capture_output unavailable in Python 3.6 and lower')
     def test_cli_python_m(self):
         cli = subprocess.run((sys.executable, '-m', 'nsupdate_for_fritz', '--dry-run',
                               config_files_path() / 'test_TXT_config.ini'),
