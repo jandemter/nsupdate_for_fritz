@@ -10,3 +10,4 @@ config.ini
 .mypy_cache
 .hg
 .hgignore
+build

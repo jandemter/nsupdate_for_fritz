@@ -1,0 +1,70 @@
+# Copyright 2024 Jan Demter <jan@demter.de>
+#
+# This file is part of nsupdate_for_fritz.
+#
+# nsupdate_for_fritz is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3 of the License.
+#
+# nsupdate_for_fritz is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with nsupdate_for_fritz.  If not, see <http://www.gnu.org/licenses/>.
+
+[project]
+name = "nsupdate_for_fritz"
+version = "0.1.0"
+authors = [{name = "Jan Demter", email = "jan@demter.de"}]
+description = """nsupdate_for_fritz gets the current IPv4 address of your AVM FRITZ!Box and then uses\
+                 nsupdate to update one or more A records with it. It can also do the same for IPv6 addresses\
+                 of hosts on your network."""
+readme = "README.md"
+keywords = ["nsupdate", "FRITZ!Box"]
+classifiers = ["Development Status :: 3 - Alpha",
+               "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+               "Topic :: Internet",
+               "Topic :: Utilities",
+               "Intended Audience :: End Users/Desktop",
+               "Environment :: Console",
+               "Operating System :: OS Independent",
+               "Programming Language :: Python",
+               "Programming Language :: Python :: 3.6",
+               "Programming Language :: Python :: 3.7",
+               "Programming Language :: Python :: 3.8",
+               "Programming Language :: Python :: 3.9",
+               "Programming Language :: Python :: 3.10",
+               "Programming Language :: Python :: 3.11",
+               "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.6"
+dynamic = ['dependencies']
+
+[project.optional-dependencies]
+test = ["tox==4.15.1", "coverage==7.5.4"]
+
+[project.urls]
+Homepage = "https://github.com/jandemter/nsupdate_for_fritz"
+Repository = "https://github.com/jandemter/nsupdate_for_fritz.git"
+
+[project.scripts]
+nsupdate_for_fritz = "nsupdate_for_fritz.util:main"
+
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["nsupdate_for_fritz"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.coverage.run]
+source = ["nsupdate_for_fritz"]
+command_line = "-m unittest discover -s tests"
+
+[tool.coverage.report]
+fail_under = 80
