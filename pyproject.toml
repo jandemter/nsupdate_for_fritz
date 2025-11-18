@@ -23,8 +23,8 @@ description = """nsupdate_for_fritz gets the current IPv4 address of your AVM FR
                  of hosts on your network."""
 readme = "README.md"
 keywords = ["nsupdate", "FRITZ!Box"]
+license = "GPL-3.0-only"
 classifiers = ["Development Status :: 3 - Alpha",
-               "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
                "Topic :: Internet",
                "Topic :: Utilities",
                "Intended Audience :: End Users/Desktop",
@@ -52,7 +52,7 @@ Repository = "https://github.com/jandemter/nsupdate_for_fritz.git"
 nsupdate_for_fritz = "nsupdate_for_fritz.util:main"
 
 [build-system]
-requires = ["setuptools >= 61.0"]
+requires = ["setuptools >= 77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
