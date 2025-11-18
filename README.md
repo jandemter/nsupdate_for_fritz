@@ -8,7 +8,7 @@ Additionally, sending TXT records, i.e. for Let's Encrypt, is possible.
 ## Install
 
 ### Requirements
-nsupdate_for_fritz requires [Python](https://www.python.org) 3.8 or later, the [requests](https://requests.readthedocs.io/)
+nsupdate_for_fritz requires [Python](https://www.python.org) 3.9 or later, the [requests](https://requests.readthedocs.io/)
 library (which will be auto-installed if you proceed as below) and nsupdate.
 
 * Debian/Ubuntu: `apt install dnsutils`
