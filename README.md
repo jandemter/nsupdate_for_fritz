@@ -74,6 +74,6 @@ variable or running via `python -m nsupdate_for_fritz` instead.
 
 ### Via Docker
 ```shell
-docker run -i localhost/nsupdate_for_fritz --dry-run - < config.ini
-docker run -i localhost/nsupdate_for_fritz - < config.ini
+docker run --rm -i localhost/nsupdate_for_fritz --dry-run - < config.ini
+docker run --rm -i localhost/nsupdate_for_fritz - < config.ini
 ```
